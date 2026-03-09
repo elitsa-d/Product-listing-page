@@ -39,6 +39,10 @@ ul {
 
 .header {
   font-weight: 500;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 20;
 }
 
 .header .header-inner {
@@ -59,6 +63,22 @@ ul {
 .header nav a {
   text-decoration: none;
   color: #000;
+  position: relative;
+}
+
+.header nav a:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #000;
+  transition: 0.2s ease-in-out;
+}
+
+.header nav a:hover:before {
+  width: 100%;
 }
 
 .header .icons {
@@ -160,6 +180,12 @@ ul {
   font-weight: 600;
 }
 
+.product-card .product-image {
+  background-image: url("./assets/img/table.png");
+  width: 285px;
+  height: 300px;
+}
+
 .product-card .product-description {
   padding: 15px;
 }
@@ -199,9 +225,20 @@ ul {
   opacity: 1;
 }
 
+.product-card button:hover {
+  color: #fff;
+  background: #b88e2f;
+}
+
 .section-products .load-more {
   font-size: 20px;
   border: 2px solid #b88e2f;
+  transition: 0.2s ease-in-out;
+}
+
+.section-products .load-more:hover {
+  background: #b88e2f;
+  color: #fff;
 }
 
 .section-products .section-bottom {
@@ -238,6 +275,22 @@ ul {
 .footer-top .footer-links a {
   text-decoration: none;
   color: #000;
+  position: relative;
+}
+
+.footer-top .footer-links a:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #000;
+  transition: 0.2s ease-in-out;
+}
+
+.footer-top .footer-links a:hover:before {
+  width: 100%;
 }
 
 .footer-top .footer-newsletter input {
