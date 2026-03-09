@@ -1,0 +1,369 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Modern Coffee Table",
+      "category": "table",
+      "color": "brown",
+      "description": "Minimalist coffee table perfect for modern living rooms.",
+      "price": 129.99,
+      "image": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88"
+    },
+    {
+      "id": 2,
+      "name": "Oak Dining Table",
+      "category": "table",
+      "color": "brown",
+      "description": "Large oak dining table suitable for family dinners.",
+      "price": 399.99,
+      "image": "https://images.unsplash.com/photo-1616628188859-7a11abb6fcc9"
+    },
+    {
+      "id": 3,
+      "name": "Round Scandinavian Table",
+      "category": "table",
+      "color": "white",
+      "description": "Elegant round table with Scandinavian design.",
+      "price": 219.99,
+      "image": "https://images.unsplash.com/photo-1505693314120-0d443867891c"
+    },
+    {
+      "id": 4,
+      "name": "Glass Coffee Table",
+      "category": "table",
+      "color": "white",
+      "description": "Modern glass table with metal legs.",
+      "price": 179.99,
+      "image": "https://images.unsplash.com/photo-1505693314120-0d443867891c"
+    },
+    {
+      "id": 5,
+      "name": "Industrial Wood Table",
+      "category": "table",
+      "color": "brown",
+      "description": "Industrial style table with steel frame.",
+      "price": 259.99,
+      "image": "https://images.unsplash.com/photo-1549490349-8643362247b5"
+    },
+    {
+      "id": 6,
+      "name": "Minimalist Side Table",
+      "category": "table",
+      "color": "white",
+      "description": "Compact side table ideal for small spaces.",
+      "price": 89.99,
+      "image": "https://images.unsplash.com/photo-1549490349-8643362247b5"
+    },
+    {
+      "id": 7,
+      "name": "Walnut Dining Table",
+      "category": "table",
+      "color": "brown",
+      "description": "Elegant walnut wood dining table.",
+      "price": 449.99,
+      "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
+    },
+    {
+      "id": 8,
+      "name": "Rustic Farmhouse Table",
+      "category": "table",
+      "color": "brown",
+      "description": "Rustic farmhouse style wooden table.",
+      "price": 349.99,
+      "image": "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c"
+    },
+    {
+      "id": 9,
+      "name": "Compact Kitchen Table",
+      "category": "table",
+      "color": "white",
+      "description": "Small kitchen table for apartments.",
+      "price": 149.99,
+      "image": "https://images.unsplash.com/photo-1615874959474-d609969a20ed"
+    },
+    {
+      "id": 10,
+      "name": "Luxury Marble Table",
+      "category": "table",
+      "color": "white",
+      "description": "Luxury marble top table for elegant interiors.",
+      "price": 599.99,
+      "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc"
+    },
+
+    {
+      "id": 11,
+      "name": "Grey Fabric Sofa",
+      "category": "sofa",
+      "color": "grey",
+      "description": "Comfortable grey fabric sofa with modern design.",
+      "price": 699.99,
+      "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc"
+    },
+    {
+      "id": 12,
+      "name": "Scandinavian Sofa",
+      "category": "sofa",
+      "color": "grey",
+      "description": "Soft Scandinavian style sofa with wooden legs.",
+      "price": 749.99,
+      "image": "https://images.unsplash.com/photo-1615874959474-d609969a20ed"
+    },
+    {
+      "id": 13,
+      "name": "Leather Luxury Sofa",
+      "category": "sofa",
+      "color": "brown",
+      "description": "Premium leather sofa with elegant design.",
+      "price": 1199.99,
+      "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85"
+    },
+    {
+      "id": 14,
+      "name": "Minimalist White Sofa",
+      "category": "sofa",
+      "color": "white",
+      "description": "Modern white sofa perfect for minimalist interiors.",
+      "price": 799.99,
+      "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85"
+    },
+    {
+      "id": 15,
+      "name": "Corner Sofa",
+      "category": "sofa",
+      "color": "grey",
+      "description": "Large corner sofa ideal for big living rooms.",
+      "price": 999.99,
+      "image": "https://images.unsplash.com/photo-1550254478-ead40cc54513"
+    },
+    {
+      "id": 16,
+      "name": "Compact Apartment Sofa",
+      "category": "sofa",
+      "color": "beige",
+      "description": "Small sofa designed for apartments.",
+      "price": 549.99,
+      "image": "https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+    },
+    {
+      "id": 17,
+      "name": "Velvet Blue Sofa",
+      "category": "sofa",
+      "color": "blue",
+      "description": "Stylish velvet sofa with deep blue color.",
+      "price": 899.99,
+      "image": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91"
+    },
+    {
+      "id": 18,
+      "name": "Modern Living Room Sofa",
+      "category": "sofa",
+      "color": "grey",
+      "description": "Comfortable sofa with modern aesthetics.",
+      "price": 799.99,
+      "image": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91"
+    },
+    {
+      "id": 19,
+      "name": "Dark Grey Sofa",
+      "category": "sofa",
+      "color": "grey",
+      "description": "Elegant dark grey sofa for modern homes.",
+      "price": 699.99,
+      "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7"
+    },
+    {
+      "id": 20,
+      "name": "Luxury Corner Sofa",
+      "category": "sofa",
+      "color": "beige",
+      "description": "Large luxury corner sofa with premium fabric.",
+      "price": 1299.99,
+      "image": "https://images.unsplash.com/photo-1616628188859-7a11abb6fcc9"
+    },
+
+    {
+      "id": 21,
+      "name": "Wooden Coffee Table",
+      "category": "table",
+      "color": "brown",
+      "description": "Simple wooden coffee table for living rooms.",
+      "price": 119.99,
+      "image": "https://images.unsplash.com/photo-1503602642458-232111445657"
+    },
+    {
+      "id": 22,
+      "name": "Black Metal Table",
+      "category": "table",
+      "color": "grey",
+      "description": "Modern black metal table.",
+      "price": 189.99,
+      "image": "https://images.unsplash.com/photo-1604578762246-41134e37f9cc"
+    },
+    {
+      "id": 23,
+      "name": "Round Marble Table",
+      "category": "table",
+      "color": "white",
+      "description": "Luxury marble round table.",
+      "price": 499.99,
+      "image": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace"
+    },
+    {
+      "id": 24,
+      "name": "Small Side Table",
+      "category": "table",
+      "color": "white",
+      "description": "Compact table for bedrooms.",
+      "price": 79.99,
+      "image": "https://images.unsplash.com/photo-1540518614846-7eded433c457"
+    },
+    {
+      "id": 25,
+      "name": "Glass Dining Table",
+      "category": "table",
+      "color": "white",
+      "description": "Elegant glass dining table.",
+      "price": 349.99,
+      "image": "https://images.unsplash.com/photo-1600210492493-0946911123ea"
+    },
+
+    {
+      "id": 26,
+      "name": "Classic Brown Sofa",
+      "category": "sofa",
+      "color": "brown",
+      "description": "Classic brown sofa with soft cushions.",
+      "price": 799.99,
+      "image": "https://images.unsplash.com/photo-1540574163026-643ea20ade25"
+    },
+    {
+      "id": 27,
+      "name": "Modern Fabric Sofa",
+      "category": "sofa",
+      "color": "grey",
+      "description": "Modern fabric sofa for everyday comfort.",
+      "price": 749.99,
+      "image": "https://images.unsplash.com/photo-1540574163026-643ea20ade25"
+    },
+    {
+      "id": 28,
+      "name": "Beige Living Room Sofa",
+      "category": "sofa",
+      "color": "beige",
+      "description": "Elegant beige sofa for bright interiors.",
+      "price": 699.99,
+      "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150"
+    },
+    {
+      "id": 29,
+      "name": "Luxury Velvet Sofa",
+      "category": "sofa",
+      "color": "blue",
+      "description": "Premium velvet sofa for luxury homes.",
+      "price": 1099.99,
+      "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2"
+    },
+    {
+      "id": 30,
+      "name": "Minimal Grey Sofa",
+      "category": "sofa",
+      "color": "grey",
+      "description": "Minimalist grey sofa with modern design.",
+      "price": 689.99,
+      "image": "https://images.unsplash.com/photo-1579656592043-a20e25a4aa4b"
+    },
+
+    {
+      "id": 31,
+      "name": "Wood Dining Table",
+      "category": "table",
+      "color": "brown",
+      "description": "Large wood dining table.",
+      "price": 429.99,
+      "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85"
+    },
+    {
+      "id": 32,
+      "name": "Rustic Coffee Table",
+      "category": "table",
+      "color": "brown",
+      "description": "Rustic style coffee table.",
+      "price": 169.99,
+      "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85"
+    },
+    {
+      "id": 33,
+      "name": "Industrial Dining Table",
+      "category": "table",
+      "color": "grey",
+      "description": "Industrial table with metal frame.",
+      "price": 389.99,
+      "image": "https://images.unsplash.com/photo-1600121848594-d8644e57abab"
+    },
+    {
+      "id": 34,
+      "name": "Luxury Marble Dining Table",
+      "category": "table",
+      "color": "white",
+      "description": "Luxury marble dining table.",
+      "price": 799.99,
+      "image": "https://images.unsplash.com/photo-1617806118233-18e1de247200"
+    },
+    {
+      "id": 35,
+      "name": "Compact Office Table",
+      "category": "table",
+      "color": "white",
+      "description": "Small table ideal for home office.",
+      "price": 139.99,
+      "image": "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf"
+    },
+
+    {
+      "id": 36,
+      "name": "Modern Grey Sofa",
+      "category": "sofa",
+      "color": "grey",
+      "description": "Comfortable modern grey sofa.",
+      "price": 799.99,
+      "image": "https://images.unsplash.com/photo-1600585152915-d208bec867a1"
+    },
+    {
+      "id": 37,
+      "name": "Elegant Fabric Sofa",
+      "category": "sofa",
+      "color": "beige",
+      "description": "Elegant fabric sofa for modern homes.",
+      "price": 829.99,
+      "image": "https://images.unsplash.com/photo-1598300056393-4aac492f4344"
+    },
+    {
+      "id": 38,
+      "name": "Soft Comfort Sofa",
+      "category": "sofa",
+      "color": "grey",
+      "description": "Soft sofa with deep comfortable cushions.",
+      "price": 749.99,
+      "image": "https://images.unsplash.com/photo-1588854337221-4cf9fa96059c"
+    },
+    {
+      "id": 39,
+      "name": "Luxury Living Room Sofa",
+      "category": "sofa",
+      "color": "grey",
+      "description": "Luxury sofa for large living rooms.",
+      "price": 1199.99,
+      "image": "https://images.unsplash.com/photo-1615874959474-d609969a20ed"
+    },
+    {
+      "id": 40,
+      "name": "Modern Beige Sofa",
+      "category": "sofa",
+      "color": "beige",
+      "description": "Modern beige sofa with clean design.",
+      "price": 799.99,
+      "image": "https://images.unsplash.com/photo-1598300056393-4aac492f4344"
+    }
+  ]
+}

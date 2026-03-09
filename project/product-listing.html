@@ -22,11 +22,11 @@
           </a>
           <nav class="nav">
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Sofas</a></li>
-              <li><a href="#">Tables</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
+              <li>
+                <a href="#" class="active" data-category="all">All products</a>
+              </li>
+              <li><a href="#" data-category="sofa">Sofas</a></li>
+              <li><a href="#" data-category="table">Tables</a></li>
             </ul>
           </nav>
           <ul class="icons">
@@ -56,26 +56,29 @@
     </header>
     <main>
       <div class="banner">
-        <p>Sofas</p>
+        <div class="banner-inner">
+          <h1>All products</h1>
+          <p>Here you can find all available products.</p>
+        </div>
       </div>
       <section class="section-filter">
         <div class="wrapper">
           <div class="section-inner">
             <div class="section-left">
-              <a href="#">
-                <img src="./assets/icons/filtering.png" alt="" />
-                Filter
-              </a>
               <span>Showing 1-16 of 32 results</span>
             </div>
 
             <div class="section-right">
               <label for="sorting">Sort by</label>
               <select name="sorting" id="sorting">
-                <option value="alphabetical (A-Z)">Alphabetical (A-Z)</option>
-                <option value="alphabetical (Z-A)">Alphabetical (Z-A)</option>
-                <option value="Price (Low to High)">Price (Low to High)</option>
-                <option value="Price (High to Low)">Price (High to Low)</option>
+                <option value="ascending-alphabetical">
+                  Alphabetical (A-Z)
+                </option>
+                <option value="descending-alphabetical">
+                  Alphabetical (Z-A)
+                </option>
+                <option value="ascending-price">Price (Low to High)</option>
+                <option value="descending-price">Price (High to Low)</option>
               </select>
             </div>
           </div>
@@ -83,43 +86,14 @@
       </section>
       <section class="section-products">
         <div class="wrapper">
-          <div class="section-inner">
-            <div class="product-card">
-              <div class="product-image"></div>
-              <div class="product-description">
-                <h2>Syltherine</h2>
-                <p>Stylish cafe chair</p>
-                <span>$300</span>
-              </div>
-              <button>Add to cart</button>
+          <div class="section-content">
+            <div class="section-left">
+              <h3>
+                <img src="./assets/icons/filtering.png" alt="" />
+                Filters
+              </h3>
             </div>
-            <div class="product-card">
-              <div class="product-image"></div>
-              <div class="product-description">
-                <h2>Syltherine</h2>
-                <p>Stylish cafe chair</p>
-                <span>$300</span>
-              </div>
-              <button>Add to cart</button>
-            </div>
-            <div class="product-card">
-              <div class="product-image"></div>
-              <div class="product-description">
-                <h2>Syltherine</h2>
-                <p>Stylish cafe chair</p>
-                <span>$300</span>
-              </div>
-              <button>Add to cart</button>
-            </div>
-            <div class="product-card">
-              <div class="product-image"></div>
-              <div class="product-description">
-                <h2>Syltherine</h2>
-                <p>Stylish cafe chair</p>
-                <span>$300</span>
-              </div>
-              <button>Add to cart</button>
-            </div>
+            <div class="section-right"></div>
           </div>
 
           <div class="section-bottom">
@@ -152,7 +126,7 @@
             <ul>
               <li><a href="#">Payment Options</a></li>
               <li><a href="#">Returns</a></li>
-              <li><a href="#">Privacy Polocies</a></li>
+              <li><a href="#">Privacy Policies</a></li>
             </ul>
           </div>
           <div class="footer-newsletter">
@@ -168,6 +142,10 @@
         </div>
       </div>
     </footer>
+
+    <div id="custom-alert">
+      <span id="alert-message"></span>
+    </div>
 
     <script src="func.js"></script>
   </body>
