@@ -14,14 +14,27 @@ p {
   margin: 0;
 }
 
+button {
+  background: white;
+  font-family: "Poppins", sans-serif;
+  color: #b88e2f;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  width: 200px;
+  padding: 15px;
+}
+
 ul {
   list-style: none;
   margin: 0;
+  padding: 0;
 }
 
 .wrapper {
   max-width: 1600px;
-  margin: 0 10px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
 .header {
@@ -173,23 +186,92 @@ ul {
 }
 
 .product-card button {
-  background: white;
-  font-family: "Poppins", sans-serif;
-  color: #b88e2f;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  width: 200px;
-  padding: 15px;
   opacity: 0;
   transition: 0.2s ease-in-out;
 }
 
 .product-card:hover button {
   opacity: 1;
+}
+
+.section-products .load-more {
+  font-size: 20px;
+  border: 2px solid #b88e2f;
+}
+
+.section-products .section-bottom {
+  padding-top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  background: #faf3ea;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0;
+}
+
+.footer-top .footer-address h2 {
+  margin-bottom: 30px;
+}
+
+.footer-top .footer-links p,
+.footer-top .footer-newsletter p {
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.footer-top .footer-links li {
+  margin-bottom: 15px;
+}
+
+.footer-top .footer-links a {
+  text-decoration: none;
+  color: #000;
+}
+
+.footer-top .footer-newsletter input {
+  border: none;
+  border-bottom: 1px solid #000;
+  background: #faf3ea;
+}
+
+.footer-top .footer-newsletter input::placeholder {
+  font-family: "Poppins", sans-serif;
+}
+
+.footer-top .footer-newsletter input[type="email"] {
+  min-width: 200px;
+}
+
+.footer-top .footer-newsletter input[type="email"]:focus {
+  outline: none;
+}
+
+.footer-top .footer-newsletter input[type="submit"] {
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.footer-top .footer-newsletter input[type="submit"]:hover {
+  color: #b88e2f;
+  border-bottom: 1px solid #b88e2f;
+}
+
+.footer-bottom {
+  padding: 20px 0;
+  border-top: 1px solid #d9d9d9;
 }
