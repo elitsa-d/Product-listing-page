@@ -110,7 +110,10 @@ function renderProducts(products) {
       <div class="product-description">
         <h2>${product.name}</h2>
         <p>${product.description}</p>
-        <span>$${product.price}</span>
+        <div>
+          <span>$${product.price}</span>
+          <span>${product.color}</span>
+        </div>
       </div>
       <button class="add-to-cart">Add to cart</button>
     `;
