@@ -14,6 +14,7 @@ ul {
 
 .header {
   font-size: 16px;
+  font-weight: 500;
 }
 
 .header .header-inner {
@@ -42,4 +43,15 @@ ul {
 
 .header .icons li {
   margin-left: 20px;
+}
+
+.banner {
+  background-image: url(./assets/img/banner-background.png);
+  background-size: cover;
+  height: 315px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  font-weight: 500;
 }
