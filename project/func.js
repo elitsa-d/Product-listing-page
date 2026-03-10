@@ -27,6 +27,91 @@ window.addEventListener("load", async () => {
   setupMobileMenu();
 });
 
+function setupCategoryFilters() {
+  const categoryLinks = document.querySelectorAll(".header .nav a");
+  categoryLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      currentCategory = link.dataset.category;
+
+      visibleProducts = productsPerLoad;
+
+      selectedColors = [];
+      document.querySelectorAll(".color-filter").forEach((checkbox) => {
+        checkbox.checked = false;
+      });
+
+      resetPriceFilters();
+
+      updateProducts();
+
+      categoryLinks.forEach((link) => link.classList.remove("active"));
+      link.classList.add("active");
+    });
+  });
+}
+
+function resetPriceFilters() {
+  const minSlider = document.querySelector("#price-min");
+  const maxSlider = document.querySelector("#price-max");
+  const minLabel = document.querySelector("#min-price");
+  const maxLabel = document.querySelector("#max-price");
+
+  minPrice = Number(minSlider.min);
+  maxPrice = Number(maxSlider.max);
+
+  minSlider.value = minPrice;
+  maxSlider.value = maxPrice;
+
+  minLabel.textContent = `$${minPrice}`;
+  maxLabel.textContent = `$${maxPrice}`;
+}
+
+function updateProducts() {
+  let filteredProducts =
+    currentCategory === "all"
+      ? [...allProducts]
+      : allProducts.filter((product) => product.category === currentCategory);
+
+  if (selectedColors.length > 0) {
+    filteredProducts = filteredProducts.filter((product) => {
+      return selectedColors.includes(product.color);
+    });
+  }
+
+  filteredProducts = filteredProducts.filter(
+    (product) => product.price >= minPrice && product.price <= maxPrice,
+  );
+
+  switch (currentSort) {
+    case "ascending-alphabetical":
+      filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+      break;
+    case "descending-alphabetical":
+      filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
+      break;
+    case "ascending-price":
+      filteredProducts.sort((a, b) => a.price - b.price);
+      break;
+    case "descending-price":
+      filteredProducts.sort((a, b) => b.price - a.price);
+      break;
+  }
+
+  changeBannerText(currentCategory);
+  const productsToShow = filteredProducts.slice(0, visibleProducts);
+  renderProducts(productsToShow);
+  updateProductCount(filteredProducts);
+
+  const loadMoreBtn = document.querySelector(".load-more");
+
+  if (visibleProducts >= filteredProducts.length) {
+    loadMoreBtn.style.display = "none";
+  } else {
+    loadMoreBtn.style.display = "block";
+  }
+}
+
 function setupMobileMenu() {
   const menuToggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".nav");
@@ -84,6 +169,11 @@ function setupPriceFilters() {
 
 function setupColorFilters() {
   const colorCheckboxes = document.querySelectorAll(".color-filter");
+
+  selectedColors = [...colorCheckboxes]
+    .filter((checkbox) => checkbox.checked)
+    .map((checkbox) => checkbox.value);
+
   colorCheckboxes.forEach((checkbox) => {
     checkbox.addEventListener("change", () => {
       selectedColors = [...colorCheckboxes]
@@ -106,112 +196,11 @@ async function fetchProducts() {
   }
 }
 
-function setupCategoryFilters() {
-  const categoryLinks = document.querySelectorAll(".header .nav a");
-  categoryLinks.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      currentCategory = link.dataset.category;
-
-      visibleProducts = productsPerLoad;
-
-      selectedColors = [];
-      document.querySelectorAll(".color-filter").forEach((checkbox) => {
-        checkbox.checked = false;
-      });
-
-      resetPriceFilters();
-
-      updateProducts();
-
-      categoryLinks.forEach((link) => link.classList.remove("active"));
-      link.classList.add("active");
-    });
-  });
-}
-
-function resetPriceFilters() {
-  const minSlider = document.querySelector("#price-min");
-  const maxSlider = document.querySelector("#price-max");
-  const minLabel = document.querySelector("#min-price");
-  const maxLabel = document.querySelector("#max-price");
-
-  minPrice = Number(minSlider.min);
-  maxPrice = Number(maxSlider.max);
-
-  minSlider.value = minPrice;
-  maxSlider.value = maxPrice;
-
-  minLabel.textContent = `$${minPrice}`;
-  maxLabel.textContent = `$${maxPrice}`;
-
-  if (typeof updateSliderTrack === "function") {
-    updateSliderTrack(minSlider, maxSlider);
-  }
-}
-
 function setupSortListener() {
   sortInput.addEventListener("change", () => {
     currentSort = sortInput.value;
     updateProducts();
   });
-}
-
-function updateProductCount(filteredProducts) {
-  const countSpan = document.getElementById("product-count");
-  const total = filteredProducts.length;
-  const shown = Math.min(visibleProducts, total);
-
-  if (total === 0) {
-    countSpan.textContent = `No products found`;
-  } else {
-    countSpan.textContent = `Showing 1-${shown} of ${total} results`;
-  }
-}
-
-function updateProducts() {
-  let filteredProducts =
-    currentCategory === "all"
-      ? [...allProducts]
-      : allProducts.filter((product) => product.category === currentCategory);
-
-  if (selectedColors.length > 0) {
-    filteredProducts = filteredProducts.filter((product) => {
-      return selectedColors.includes(product.color);
-    });
-  }
-
-  filteredProducts = filteredProducts.filter(
-    (product) => product.price >= minPrice && product.price <= maxPrice,
-  );
-
-  switch (currentSort) {
-    case "ascending-alphabetical":
-      filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
-      break;
-    case "descending-alphabetical":
-      filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
-      break;
-    case "ascending-price":
-      filteredProducts.sort((a, b) => a.price - b.price);
-      break;
-    case "descending-price":
-      filteredProducts.sort((a, b) => b.price - a.price);
-      break;
-  }
-
-  changeBannerText(currentCategory);
-  const productsToShow = filteredProducts.slice(0, visibleProducts);
-  renderProducts(productsToShow);
-  updateProductCount(filteredProducts);
-
-  const loadMoreBtn = document.querySelector(".load-more");
-
-  if (visibleProducts >= filteredProducts.length) {
-    loadMoreBtn.style.display = "none";
-  } else {
-    loadMoreBtn.style.display = "block";
-  }
 }
 
 function changeBannerText(text) {

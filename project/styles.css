@@ -595,6 +595,10 @@ ul {
     justify-content: center;
   }
 
+  .section-products .load-more {
+    font-size: 16px;
+  }
+
   .product-card {
     margin: 0 0 20px;
   }
@@ -609,6 +613,14 @@ ul {
     transform: translate(50%, 0);
   }
 
+  .footer-top .footer-address {
+    margin-bottom: 25px;
+  }
+
+  .footer-top .footer-address h2 {
+    margin-bottom: 10px;
+  }
+
   .footer-top .footer-links p {
     margin-bottom: 13px;
   }
@@ -619,5 +631,9 @@ ul {
 
   .footer-top .footer-newsletter p {
     margin-bottom: 13px;
+  }
+
+  .footer-top .footer-newsletter input[type="email"] {
+    min-width: 170px;
   }
 }
