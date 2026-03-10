@@ -242,6 +242,7 @@ function setupPriceFilters() {
   maxSlider.addEventListener("input", () => {
     maxPrice = Number(maxSlider.value);
     maxLabel.textContent = `$${maxPrice}`;
+    visibleProducts = productsPerLoad;
     updateProducts();
   });
 }
