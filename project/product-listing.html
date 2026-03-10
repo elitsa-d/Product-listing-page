@@ -20,6 +20,13 @@
             <img src="./assets/icons/Meubel House_Logos-05.png" alt="" />
             <img src="./assets/icons/SkinClinic.png" alt="" />
           </a>
+
+          <a href="#" class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+
           <nav class="nav">
             <ul>
               <li>
@@ -65,7 +72,7 @@
         <div class="wrapper">
           <div class="section-inner">
             <div class="section-left">
-              <span>Showing 1-16 of 32 results</span>
+              <span id="product-count">Showing 1-16 of 32 results</span>
             </div>
 
             <div class="section-right">
@@ -151,6 +158,31 @@
                     </label>
                   </li>
                 </ul>
+              </div>
+              <div class="price-filters">
+                <p>Price</p>
+
+                <span id="min-price">$0</span>
+                <input
+                  type="range"
+                  id="price-min"
+                  min="0"
+                  max="1500"
+                  step="10"
+                  value="0"
+                  class="slider-input"
+                />
+
+                <span id="max-price">$1500</span>
+                <input
+                  type="range"
+                  id="price-max"
+                  min="0"
+                  max="1500"
+                  step="10"
+                  value="1500"
+                  class="slider-input"
+                />
               </div>
             </div>
             <div class="section-right"></div>

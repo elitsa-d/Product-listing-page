@@ -1,6 +1,11 @@
 let allProducts = [];
 let currentCategory = "all";
 let currentSort = "ascending-alphabetical";
+let selectedColors = [];
+let minPrice = 0;
+let maxPrice = 1500;
+let visibleProducts = 8;
+const productsPerLoad = 8;
 
 const productsContainer = document.querySelector(
   ".section-products .section-right",
@@ -9,10 +14,86 @@ const sortInput = document.querySelector("#sorting");
 
 window.addEventListener("load", async () => {
   allProducts = await fetchProducts();
+
+  sortInput.value = currentSort;
+
   setupCategoryFilters();
   setupSortListener();
+  setupColorFilters();
+  setupPriceFilters();
+  resetPriceFilters();
+  setupLoadMore();
   updateProducts();
+  setupMobileMenu();
 });
+
+function setupMobileMenu() {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const nav = document.querySelector(".nav");
+
+  menuToggle.addEventListener("click", (event) => {
+    nav.classList.toggle("active");
+    event.target.classList.toggle("active");
+  });
+}
+
+function setupLoadMore() {
+  const loadMoreBtn = document.querySelector(".load-more");
+
+  loadMoreBtn.addEventListener("click", () => {
+    visibleProducts += productsPerLoad;
+
+    if (visibleProducts > allProducts.length) {
+      visibleProducts = allProducts.length;
+    }
+    updateProducts();
+  });
+}
+
+function updateProductCount(filteredProducts) {
+  const countSpan = document.getElementById("product-count");
+  const total = filteredProducts.length;
+  const shown = Math.min(visibleProducts, total);
+
+  if (total === 0) {
+    countSpan.textContent = `No products found`;
+  } else {
+    countSpan.textContent = `Showing 1-${shown} of ${total} results`;
+  }
+}
+
+function setupPriceFilters() {
+  const minSlider = document.querySelector("#price-min");
+  const maxSlider = document.querySelector("#price-max");
+  const minLabel = document.querySelector("#min-price");
+  const maxLabel = document.querySelector("#max-price");
+
+  minSlider.addEventListener("input", () => {
+    minPrice = Number(minSlider.value);
+    minLabel.textContent = `$${minPrice}`;
+    visibleProducts = productsPerLoad;
+    updateProducts();
+  });
+
+  maxSlider.addEventListener("input", () => {
+    maxPrice = Number(maxSlider.value);
+    maxLabel.textContent = `$${maxPrice}`;
+    updateProducts();
+  });
+}
+
+function setupColorFilters() {
+  const colorCheckboxes = document.querySelectorAll(".color-filter");
+  colorCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+      selectedColors = [...colorCheckboxes]
+        .filter((checkbox) => checkbox.checked)
+        .map((checkbox) => checkbox.value);
+      visibleProducts = productsPerLoad;
+      updateProducts();
+    });
+  });
+}
 
 async function fetchProducts() {
   try {
@@ -31,12 +112,42 @@ function setupCategoryFilters() {
     link.addEventListener("click", (e) => {
       e.preventDefault();
       currentCategory = link.dataset.category;
+
+      visibleProducts = productsPerLoad;
+
+      selectedColors = [];
+      document.querySelectorAll(".color-filter").forEach((checkbox) => {
+        checkbox.checked = false;
+      });
+
+      resetPriceFilters();
+
       updateProducts();
 
       categoryLinks.forEach((link) => link.classList.remove("active"));
       link.classList.add("active");
     });
   });
+}
+
+function resetPriceFilters() {
+  const minSlider = document.querySelector("#price-min");
+  const maxSlider = document.querySelector("#price-max");
+  const minLabel = document.querySelector("#min-price");
+  const maxLabel = document.querySelector("#max-price");
+
+  minPrice = Number(minSlider.min);
+  maxPrice = Number(maxSlider.max);
+
+  minSlider.value = minPrice;
+  maxSlider.value = maxPrice;
+
+  minLabel.textContent = `$${minPrice}`;
+  maxLabel.textContent = `$${maxPrice}`;
+
+  if (typeof updateSliderTrack === "function") {
+    updateSliderTrack(minSlider, maxSlider);
+  }
 }
 
 function setupSortListener() {
@@ -46,11 +157,33 @@ function setupSortListener() {
   });
 }
 
+function updateProductCount(filteredProducts) {
+  const countSpan = document.getElementById("product-count");
+  const total = filteredProducts.length;
+  const shown = Math.min(visibleProducts, total);
+
+  if (total === 0) {
+    countSpan.textContent = `No products found`;
+  } else {
+    countSpan.textContent = `Showing 1-${shown} of ${total} results`;
+  }
+}
+
 function updateProducts() {
   let filteredProducts =
     currentCategory === "all"
       ? [...allProducts]
       : allProducts.filter((product) => product.category === currentCategory);
+
+  if (selectedColors.length > 0) {
+    filteredProducts = filteredProducts.filter((product) => {
+      return selectedColors.includes(product.color);
+    });
+  }
+
+  filteredProducts = filteredProducts.filter(
+    (product) => product.price >= minPrice && product.price <= maxPrice,
+  );
 
   switch (currentSort) {
     case "ascending-alphabetical":
@@ -68,7 +201,17 @@ function updateProducts() {
   }
 
   changeBannerText(currentCategory);
-  renderProducts(filteredProducts);
+  const productsToShow = filteredProducts.slice(0, visibleProducts);
+  renderProducts(productsToShow);
+  updateProductCount(filteredProducts);
+
+  const loadMoreBtn = document.querySelector(".load-more");
+
+  if (visibleProducts >= filteredProducts.length) {
+    loadMoreBtn.style.display = "none";
+  } else {
+    loadMoreBtn.style.display = "block";
+  }
 }
 
 function changeBannerText(text) {
