@@ -164,7 +164,11 @@ function renderProducts(products) {
         <p>${product.description}</p>
         <div>
           <span>$${product.price}</span>
-          <span>${product.color}</span>
+          <span>
+            <i class="fa-regular fa-star"></i>
+            ${product.rating}
+          </span>
+          <span class="color-circle" style="background-color:${product.colorCode}"></span>
         </div>
       </div>
       <button class="add-to-cart">Add to cart</button>
